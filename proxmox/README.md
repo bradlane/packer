@@ -15,5 +15,8 @@ Upload both ISO images to Proxmox datastore
     ```bash
     cd proxmox/WinSvr2022
     packer init .
-    packer build -var-file win2022.pkrvars.hcl .
+    # build windows server core
+    packer build -var-file win2022-core.pkrvars.hcl .
+    # build windows server with desktop
+    packer build -var-file win2022-desk.pkrvars.hcl .
     ```
