@@ -32,3 +32,11 @@ variable "network_bridge" {
   type    = string
   default = "vmbr0"
 }
+
+variable "win_answer_file_path" {
+  type = string
+}
+
+variable "template_name" {
+  type = string
+}
