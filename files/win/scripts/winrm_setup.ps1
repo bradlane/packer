@@ -3,9 +3,9 @@ New-NetFirewallRule -DisplayName "WinRM (HTTP)" -Direction Inbound -LocalPort 59
 New-NetFirewallRule -DisplayName "WinRM (HTTPS)" -Direction Inbound -LocalPort 5986 -Action Block -Protocol TCP -Profile Any
 
 # Set WinRM Configuration
-Set-WSManInstance -ResourceURI WinRM/Config/Winrs -ValueSet '@{MaxMemoryPerShellMB="0"}'
-Set-WSManInstance -ResourceURI WinRM/Config -ValueSet '@{MaxTimeoutms="7200000"}'
-Set-WSManInstance -ResourceURI WinRM/Config/Service -ValueSet '@{MaxConcurrentOperationsPerUser="12000"}'
+Set-WSManInstance -ResourceURI WinRM/Config/Winrs -ValueSet @{MaxMemoryPerShellMB="0"}
+Set-WSManInstance -ResourceURI WinRM/Config -ValueSet @{MaxTimeoutms="7200000"}
+Set-WSManInstance -ResourceURI WinRM/Config/Service -ValueSet @{MaxConcurrentOperationsPerUser="12000"}
 Set-WSManInstance -ResourceURI WinRM/Config/Service/Auth -ValueSet @{Basic = "true" } 
 
 # Create Self-Signed Cert for WinRM Listener

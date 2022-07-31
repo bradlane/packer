@@ -23,7 +23,7 @@ locals {
 
 source "proxmox-iso" "windows" {
   # General Settings
-  vm_name     = "Win2022"
+  vm_name     = "${var.template_name}"
   os          = "win11"
   bios        = "ovmf"
   unmount_iso = true
@@ -60,7 +60,7 @@ source "proxmox-iso" "windows" {
   }
   additional_iso_files {
     device           = "sata2"
-    cd_files         = ["autounattend.xml", "../../scripts/windows/winrm_setup.ps1"]
+    cd_files         = ["${var.win_answer_file_path}", "../../files/win/scripts/winrm_setup.ps1"]
     iso_storage_pool = "local"
   }
 
@@ -68,7 +68,7 @@ source "proxmox-iso" "windows" {
   communicator   = "winrm"
   winrm_password = "packer"
   winrm_insecure = "true"
-  winrm_use_ssl = "true"
+  winrm_use_ssl  = "true"
   winrm_username = "Administrator"
 
   # Proxmox
