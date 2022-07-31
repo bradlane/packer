@@ -51,7 +51,7 @@ source "proxmox-iso" "windows" {
   boot_command = ["<enter>"]
   boot_wait    = "8s"
 
-  # OS ISO, VMware Tools ISO & Floppy files
+  # OS ISO, VirtIO ISO, Windows Installer answer files & setup scripts
   iso_file = "${var.os_iso_path}"
   additional_iso_files {
     device   = "sata1"
